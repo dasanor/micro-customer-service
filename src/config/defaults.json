@@ -1,0 +1,35 @@
+{
+  "services": {
+    "name": "customer",
+    "version": "v1",
+    "style": "RPC"
+  },
+  "schemas": {
+    "createCustomer": "./schemas/createCustomerSchema",
+    "infoCustomer": "./schemas/infoCustomerSchema",
+    "removeCustomer": "./schemas/removeCustomerSchema",
+    "checkCredentials": "./schemas/checkCredentialsSchema"
+  },
+  "models": {
+    "customerModel": "./models/customerModel"
+  },
+  "bus": {
+    "engines": {
+      "local": {
+        "handler": "./local"
+      },
+      "amqp": {
+        "handler": "./amqp",
+        "url": "amqp://bus"
+      }
+    },
+    "channels": {
+      "customers": {
+        "name": "CUSTOMERS",
+        "engine": "amqp"
+      }
+    }
+  },
+  "aggregateItems": true,
+  "bcryptSalt": 10
+}
