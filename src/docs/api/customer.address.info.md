@@ -15,7 +15,7 @@ addressId  | yes  | String      | r1h2uQ4rx            | Address identifier.
 
 # Response
 
-Returns a customer object:
+Returns a address object:
 
 ```javascript
 {
