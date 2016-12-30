@@ -9,24 +9,23 @@ const bcrypt = require('bcrypt');
  * @return {Function} The operation factory
  */
 function opFactory(base) {
-  const customersChannel = base.config.get('bus:channels:customers:name');
   const op = {
     validator: {
       schema: require(base.config.get('schemas:checkCredentials'))
     },
     handler: (msg, reply) => {
-      const username = msg.username;
+      const email = msg.email;
 
       base.db.models.Customer
-        .findOne({ username })
+        .findOne({ email })
         .exec()
         .then(customer => {
-          if (!customer) throw base.utils.Error('bad_credentials', {username});
+          if (!customer) throw base.utils.Error('bad_credentials', {email});
 
           return bcrypt.compare(msg.password, customer.password);
         })
         .then(result => {
-          if(!result) throw base.utils.Error('bad_credentials', {username});
+          if(!result) throw base.utils.Error('bad_credentials', {email});
 
           return reply(base.utils.genericResponse());
         })

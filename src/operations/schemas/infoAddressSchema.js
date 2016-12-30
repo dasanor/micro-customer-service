@@ -1,15 +1,15 @@
 module.exports = {
   type: 'object',
   properties: {
-    email: {
+    customerId: {
       type: 'string'
     },
-    password: {
+    addressId: {
       type: 'string'
     }
   },
   required: [
-    'email',
-    'password'
+    'customerId',
+    'addressId'
   ]
 };

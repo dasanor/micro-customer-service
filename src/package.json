@@ -16,10 +16,12 @@
   "author": "Nicolás Cornaglia Schlieman",
   "license": "OSL-3.0",
   "dependencies": {
-    "microbase": "^0.8.4",
+    "i18n-iso-countries": "^1.8.0",
+    "isemail": "^2.2.1",
+    "microbase": "0.9.0",
     "moment": "^2.13.0",
     "shortid": "^2.2.6",
-    "bcrypt": "latest"
+    "bcrypt": "^1.0.0"
   },
   "devDependencies": {
     "code": "^3.0.0",

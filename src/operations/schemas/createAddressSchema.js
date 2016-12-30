@@ -1,25 +1,7 @@
 module.exports = {
   type: 'object',
   properties: {
-    email: {
-      type: 'string'
-    },
-    password: {
-      type: 'string'
-    },
-    firstName: {
-      type: 'string'
-    },
-    lastName: {
-      type: 'string'
-    },
-    tags: {
-      type: 'array',
-      items: {
-        type: 'string'
-      }
-    },
-    status: {
+    customerId: {
       type: 'string'
     },
     addresses: {
@@ -77,10 +59,8 @@ module.exports = {
     }
   },
   required: [
-    'email',
-    'password',
-    'firstName',
-    'lastName'
+    'customerId',
+    'addresses'
   ],
   additionalProperties: true
 };

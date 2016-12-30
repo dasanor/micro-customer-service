@@ -1,5 +1,7 @@
 const bcrypt = require('bcrypt');
-const shortId = require('shortid');
+const isemail = require('isemail');
+const isoCountries = require('i18n-iso-countries');
+const shortId = require('shortId');
 
 /**
  * ## `customer.create` operation factory
@@ -19,18 +21,25 @@ function opFactory(base) {
     },
     handler: (msg, reply) => {
       bcrypt.hash(msg.password, bcryptSalt)
-        .then( encryptedPassword => {
+        .then(encryptedPassword => {
+          const email = msg.email;
+          if (!isemail.validate(email)) throw base.utils.Error('customer_invalid_email', {email});
 
           if (msg.addresses) {
-            msg.addresses.forEach(address => address.id = shortId.generate());
+            msg.addresses.forEach(address => {
+              if (!isoCountries.alpha2ToNumeric(address.country)) {
+                  throw base.utils.Error('address_contry_invalid', { address: address.country });
+              }else {
+                address.id = shortId.generate()
+              }
+            });
           }
 
           const customer = new base.db.models.Customer({
-            username: msg.username,
+            email: msg.email,
             password: encryptedPassword,
             firstName: msg.firstName,
             lastName: msg.lastName,
-            email: msg.email,
             addresses: msg.addresses,
             tags: msg.tags,
             status: msg.status
@@ -43,12 +52,12 @@ function opFactory(base) {
 
           base.bus.publish(`${customersChannel}.CREATE`,
             {
-              new: savedCustomer.toObject({ virtuals: true }),
+              new: savedCustomer.toObject({virtuals: true}),
               data: msg
             }
           );
 
-          return reply(base.utils.genericResponse({ customer: savedCustomer.toClient() }));
+          return reply(base.utils.genericResponse({customer: savedCustomer.toClient()}));
         })
         .catch(error => reply(base.utils.genericResponse(null, error)));
     }

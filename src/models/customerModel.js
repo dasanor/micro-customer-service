@@ -1,6 +1,8 @@
 const shortId = require('shortid');
 
-function modelFactory(base) {
+function modelFactory(base, configKeys) {
+  const modelName = configKeys[configKeys.length - 1];
+
   if (base.logger.isDebugEnabled()) base.logger.debug('[db] registering model Customer');
 
   const STATUS = {
@@ -14,7 +16,8 @@ function modelFactory(base) {
     name: { type: String, required: true },
     firstName: { type: String, required: true },
     lastName: { type: String, required: false },
-    address: { type: String, required: true },
+    address_1: { type: String, required: true },
+    address_2: { type: String, required: false },
     postCode: { type: Number, required: true },
     city: { type: String, required: true },
     county: { type: String, required: true },
@@ -36,11 +39,10 @@ function modelFactory(base) {
         return shortId.generate();
       }
     },
-    username: { type: String, required: true },
+    email: { type: String, required: true },
     password: { type: String, required: true },
     firstName: { type: String, required: true },
     lastName: { type: String, required: true },
-    email: { type: String, required: false },
     addresses: [addressSchema],
     tags: [{ type: String, required: false }],
     status: {
@@ -68,16 +70,15 @@ function modelFactory(base) {
   });
 
   // Add the indexes
-  schema.index({ username: 1 }, { unique: true });
+  schema.index({ email: 1 }, { unique: true });
 
-  const model = base.db.model('Customer', schema);
+  const model = base.db.model(modelName, schema);
 
   model.selectableFields = [
     'id',
-    'username',
+    'email',
     'firstName',
     'lastName',
-    'email',
     'tags',
     'status',
     'addresses'

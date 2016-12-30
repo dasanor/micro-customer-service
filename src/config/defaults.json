@@ -6,12 +6,17 @@
   },
   "schemas": {
     "createCustomer": "./schemas/createCustomerSchema",
+    "updateCustomer": "./schemas/updateCustomerSchema",
     "infoCustomer": "./schemas/infoCustomerSchema",
     "removeCustomer": "./schemas/removeCustomerSchema",
-    "checkCredentials": "./schemas/checkCredentialsSchema"
+    "checkCredentials": "./schemas/checkCredentialsSchema",
+    "createAddress": "./schemas/createAddressSchema",
+    "updateAddress": "./schemas/updateAddressSchema",
+    "infoAddress": "./schemas/infoAddressSchema",
+    "removeAddress": "./schemas/removeAddressSchema"
   },
   "models": {
-    "customerModel": "./models/customerModel"
+    "Customer": "./models/customerModel"
   },
   "bus": {
     "engines": {

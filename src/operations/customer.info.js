@@ -7,8 +7,6 @@
  * @return {Function} The operation factory
  */
 function opFactory(base) {
-  const customersChannel = base.config.get('bus:channels:customers:name');
-
   const op = {
     validator: {
       schema: require(base.config.get('schemas:infoCustomer'))

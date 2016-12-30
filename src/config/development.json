@@ -11,9 +11,6 @@
     "host": "localhost",
     "db": "micro",
     "debug": true
-  },
-  "gateway": {
-    "gatewayUrlOverrride": "./config/gatewayUrlOverride"
   }
 }
 
