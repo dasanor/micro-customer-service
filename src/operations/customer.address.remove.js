@@ -6,10 +6,10 @@
  * @param {base} Object The microbase object
  * @return {Function} The operation factory
  */
-function opFactory(base) {
+module.exports = (base) => {
   const customersChannel = base.config.get('bus:channels:customers:name');
 
-  const op = {
+  return {
     validator: {
       schema: require(base.config.get('schemas:removeAddress'))
     },
@@ -41,9 +41,5 @@ function opFactory(base) {
         })
         .catch(error => reply(base.utils.genericResponse(null, error)));
     }
-  };
-  return op;
+  }
 }
-
-// Exports the factory
-module.exports = opFactory;

@@ -36,7 +36,7 @@ Returns a customer object:
                 "address_2": "Number 10",
                 "postCode": 61701,
                 "city": "Bloomington",
-                "county": "Illinois",
+                "state": "Illinois",
                 "country": "US",
                 "company": "My Company",
                 "phone": 2173203531,

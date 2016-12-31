@@ -8,8 +8,8 @@ const bcrypt = require('bcrypt');
  * @param {base} Object The microbase object
  * @return {Function} The operation factory
  */
-function opFactory(base) {
-  const op = {
+module.exports = (base) => {
+  return {
     validator: {
       schema: require(base.config.get('schemas:checkCredentials'))
     },
@@ -31,9 +31,5 @@ function opFactory(base) {
         })
         .catch(error => reply(base.utils.genericResponse(null, error)));
     }
-  };
-  return op;
+  }
 }
-
-// Exports the factory
-module.exports = opFactory;

@@ -30,7 +30,7 @@ module.exports = {
           city: {
             type: 'string'
           },
-          county: {
+          state: {
             type: 'string'
           },
           country: {
@@ -52,7 +52,7 @@ module.exports = {
           'address_1',
           'postCode',
           'city',
-          'county',
+          'state',
           'country'
         ]
       }

@@ -6,7 +6,7 @@
  * @param {base} Object The microbase object
  * @return {Function} The operation factory
  */
-function opFactory(base) {
+module.exports = (base) => {
   const equalExpression = value => value;
   const inExpression = value => ({
     $in: value.split(',')
@@ -17,23 +17,8 @@ function opFactory(base) {
   const filterExpressions = {
     id: inExpression,
     email: inExpression,
-    firstName: likeExpression,
-    lastName: likeExpression,
     status: inExpression,
-    tags: inExpression,
-    'addresses.id': inExpression,
-    'addresses.name': likeExpression,
-    'addresses.firstName': likeExpression,
-    'addresses.lastName': likeExpression,
-    'addresses.address_1': likeExpression,
-    'addresses.address_2': likeExpression,
-    'addresses.postCode': inExpression,
-    'addresses.city': inExpression,
-    'addresses.county': inExpression,
-    'addresses.country': inExpression,
-    'addresses.company': likeExpression,
-    'addresses.phone': inExpression,
-    'addresses.instructions': likeExpression
+    tags: inExpression
   };
 
   const selectableFields = base.db.models.Customer.selectableFields;
@@ -42,7 +27,7 @@ function opFactory(base) {
   const defaultLimit = 10;
   const maxLimit = 100;
 
-  const op = {
+  return {
     handler: (params, reply) => {
       // Filters
       const filters = allowedProperties
@@ -88,9 +73,5 @@ function opFactory(base) {
         })
         .catch(error => reply(base.utils.genericResponse(null, error)));
     }
-  };
-  return op;
+  }
 }
-
-// Exports the factory
-module.exports = opFactory;

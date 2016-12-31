@@ -35,6 +35,5 @@
       }
     }
   },
-  "aggregateItems": true,
   "bcryptSalt": 10
 }

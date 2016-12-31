@@ -25,7 +25,7 @@ address_1    | yes  | String  | 1650 Bolman Court   | Address information.
 address_2    | no   | Array   | Number 10           | Aditional address information.
 postCode     | yes  | Number  | 61701               | Address post code
 city         | yes  | String  | Bloomington         | Address city
-county       | yes  | String  | Illinois            | Address county
+state        | yes  | String  | Illinois            | Address state
 country      | yes  | String  | US                  | Address country
 company      | no   | String  | My Company          | Name of the company
 phone        | no   | Number  | 2173203531          | Address phone
@@ -55,7 +55,7 @@ Returns a customer object:
                 "address_2": "Number 10",
                 "postCode": 61701,
                 "city": "Bloomington",
-                "county": "Illinois",
+                "state": "Illinois",
                 "country": "US",
                 "company": "My Company",
                 "phone": 2173203531,
@@ -97,7 +97,7 @@ curl --request POST \
           "address_2": "",
           "postCode": 61701,
           "city": "Bloomington",
-          "county": "Illinois",
+          "state": "Illinois",
           "country": "US",
           "company" : "My Company",
           "phone" : 2173203531,

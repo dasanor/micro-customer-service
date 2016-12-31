@@ -20,7 +20,7 @@ function modelFactory(base, configKeys) {
     address_2: { type: String, required: false },
     postCode: { type: Number, required: true },
     city: { type: String, required: true },
-    county: { type: String, required: true },
+    state: { type: String, required: true },
     country: { type: String, required: true },
     company: { type: String, required: false },
     phone: { type: Number, required: false },
@@ -77,11 +77,8 @@ function modelFactory(base, configKeys) {
   model.selectableFields = [
     'id',
     'email',
-    'firstName',
-    'lastName',
     'tags',
-    'status',
-    'addresses'
+    'status'
   ];
 
   // Add the model to mongoose
