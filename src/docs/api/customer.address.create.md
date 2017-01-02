@@ -22,7 +22,7 @@ firstName    | yes  | String  | John                | Customer first name.
 lastName     | no   | String  | Doe                 | Customer last name.
 address_1    | yes  | String  | 1650 Bolman Court   | Address information.
 address_2    | no   | Array   | Number 10           | Aditional address information.
-postCode     | yes  | Number  | 61701               | Address post code
+postCode     | yes  | String  | 61701               | Address post code
 city         | yes  | String  | Bloomington         | Address city
 state        | yes  | String  | Illinois            | Address state
 country      | yes  | String  | US                  | Address country
@@ -52,7 +52,7 @@ Returns a customer object:
                 "lastName": "Doe",
                 "address_1": "1650 Bolman Court",
                 "address_2": "Number 10",
-                "postCode": 61701,
+                "postCode": "61701",
                 "city": "Bloomington",
                 "state": "Illinois",
                 "country": "US",
@@ -93,7 +93,7 @@ curl --request POST \
           "lastName": "Doe",
           "address_1": "1650 Bolman Court",
           "address_2": "",
-          "postCode": 61701,
+          "postCode": "61701",
           "city": "Bloomington",
           "state": "Illinois",
           "country": "US",

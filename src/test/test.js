@@ -94,7 +94,7 @@ function createCustomer(email, country) {
         lastName: 'Doe',
         address_1: '1650 Bolman Court',
         address_2: '10',
-        postCode: 61701,
+        postCode: '61701',
         city: 'Bloomington',
         state: 'Illinois',
         country: country || 'US',
@@ -139,7 +139,7 @@ describe('Customer', () => {
         expect(address.lastName).to.be.a.string().and.to.equal('Doe');
         expect(address.address_1).to.be.a.string().and.to.equal('1650 Bolman Court');
         expect(address.address_2).to.be.a.string().and.to.equal('10');
-        expect(address.postCode).to.be.a.number().and.to.equal(61701);
+        expect(address.postCode).to.be.a.string().and.to.equal('61701');
         expect(address.city).to.be.a.string().and.to.equal('Bloomington');
         expect(address.state).to.be.a.string().and.to.equal('Illinois');
         expect(address.country).to.be.a.string().and.to.equal('US');
@@ -403,7 +403,7 @@ describe('Customer', () => {
           firstName: 'John',
           lastName: 'Doe',
           address_1: 'Colon 20',
-          postCode: 46004,
+          postCode: '46004',
           city: 'Valencia',
           state: 'Valencia',
           country: 'ES',
@@ -425,7 +425,7 @@ describe('Customer', () => {
         expect(newAddress.firstName).to.be.a.string().and.to.equal('John');
         expect(newAddress.lastName).to.be.a.string().and.to.equal('Doe');
         expect(newAddress.address_1).to.be.a.string().and.to.equal('Colon 20');
-        expect(newAddress.postCode).to.be.a.number().and.to.equal(46004);
+        expect(newAddress.postCode).to.be.a.string().and.to.equal('46004');
         expect(newAddress.city).to.be.a.string().and.to.equal('Valencia');
         expect(newAddress.state).to.be.a.string().and.to.equal('Valencia');
         expect(newAddress.country).to.be.a.string().and.to.equal('ES');
@@ -449,7 +449,7 @@ describe('Customer', () => {
           firstName: 'John',
           lastName: 'Doe',
           address_1: 'Colon 20',
-          postCode: 46004,
+          postCode: '46004',
           city: 'Valencia',
           state: 'Valencia',
           country: 'Spain',
@@ -482,7 +482,7 @@ describe('Customer', () => {
           firstName: 'John',
           lastName: 'Doe',
           address_1: 'Colon 20',
-          postCode: 46004,
+          postCode: '46004',
           city: 'Valencia',
           state: 'Valencia',
           country: 'ES',
@@ -576,7 +576,7 @@ describe('Customer', () => {
           firstName: 'John',
           lastName: 'Doe',
           address_1: 'Colon 20',
-          postCode: 46004,
+          postCode: '46004',
           city: 'Valencia',
           state: 'Valencia',
           country: 'ES',
@@ -598,7 +598,7 @@ describe('Customer', () => {
         expect(newAddress.firstName).to.be.a.string().and.to.equal('John');
         expect(newAddress.lastName).to.be.a.string().and.to.equal('Doe');
         expect(newAddress.address_1).to.be.a.string().and.to.equal('Colon 20');
-        expect(newAddress.postCode).to.be.a.number().and.to.equal(46004);
+        expect(newAddress.postCode).to.be.a.string().and.to.equal('46004');
         expect(newAddress.city).to.be.a.string().and.to.equal('Valencia');
         expect(newAddress.state).to.be.a.string().and.to.equal('Valencia');
         expect(newAddress.country).to.be.a.string().and.to.equal('ES');
@@ -623,7 +623,7 @@ describe('Customer', () => {
           firstName: 'John',
           lastName: 'Doe',
           address_1: 'Colon 20',
-          postCode: 46004,
+          postCode: '46004',
           city: 'Valencia',
           state: 'Valencia',
           country: 'ES',
@@ -656,7 +656,7 @@ describe('Customer', () => {
           firstName: 'John',
           lastName: 'Doe',
           address_1: 'Colon 20',
-          postCode: 46004,
+          postCode: '46004',
           city: 'Valencia',
           state: 'Valencia',
           country: 'ES',
@@ -689,7 +689,7 @@ describe('Customer', () => {
           firstName: 'John',
           lastName: 'Doe',
           address_1: 'Colon 20',
-          postCode: 46004,
+          postCode: '46004',
           city: 'Valencia',
           state: 'Valencia',
           country: 'Spain',

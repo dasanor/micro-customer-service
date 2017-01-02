@@ -41,7 +41,7 @@ Returns a customer object:
                 "lastName": "Doe",
                 "address_1": "1650 Bolman Court",
                 "address_2": "Number 10",
-                "postCode": 61701,
+                "postCode": "61701",
                 "city": "Bloomington",
                 "state": "Illinois",
                 "country": "US",

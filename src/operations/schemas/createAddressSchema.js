@@ -25,7 +25,7 @@ module.exports = {
             type: 'string'
           },
           postCode: {
-            type: 'number'
+            type: 'string'
           },
           city: {
             type: 'string'
