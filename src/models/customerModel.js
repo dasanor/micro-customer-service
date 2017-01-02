@@ -74,10 +74,11 @@ function modelFactory(base, configKeys) {
 
   const model = base.db.model(modelName, schema);
 
+  model.STATUS = STATUS;
   model.selectableFields = [
     'id',
     'email',
-    'fristName',
+    'firstName',
     'lastName',
     'tags',
     'status',
