@@ -1,0 +1,16 @@
+{
+  "logger": {
+    "level": "debug"
+  },
+  "transports": {
+    "http": {
+      "port": "3005"
+    }
+  },
+  "db": {
+    "host": "localhost",
+    "db": "micro",
+    "debug": true
+  }
+}
+
