@@ -1,7 +1,7 @@
 const bcrypt = require('bcrypt');
 const isemail = require('isemail');
 const isoCountries = require('i18n-iso-countries');
-const shortId = require('shortId');
+const shortId = require('shortid');
 
 /**
  * ## `customer.create` operation factory

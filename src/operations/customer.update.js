@@ -1,6 +1,4 @@
-const bcrypt = require('bcrypt');
 const isemail = require('isemail');
-const shortId = require('shortId');
 
 /**
  * ## `customer.update` operation factory
@@ -12,7 +10,6 @@ const shortId = require('shortId');
  */
 module.exports = (base) => {
   const customersChannel = base.config.get('bus:channels:customers:name');
-  const bcryptSalt = base.config.get('bcryptSalt');
 
   return {
     validator: {
