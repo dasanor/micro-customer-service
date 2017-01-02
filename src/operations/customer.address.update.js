@@ -17,7 +17,7 @@ module.exports = (base) => {
     handler: (msg, reply) => {
       const customerId = msg.customerId;
       const address = msg.address;
-      const addressId = address.addressId;
+      const addressId = address.id;
 
       if (!isoCountries.alpha2ToNumeric(address.country)) {
         return reply(base.utils.genericResponse(null,

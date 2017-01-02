@@ -21,13 +21,15 @@ module.exports = (base) => {
     },
     handler: (msg, reply) => {
       const email = msg.email;
-      if (!isemail.validate(email)) throw base.utils.Error('customer_invalid_email', {email});
+      if (!isemail.validate(email)) {
+        return reply(base.utils.genericResponse(null, base.utils.Error('customer_invalid_email', {email})));
+      }
 
       if (msg.addresses) {
         msg.addresses.forEach(address => {
           if (!isoCountries.alpha2ToNumeric(address.country)) {
-            throw base.utils.Error('address_contry_invalid', { address: address.country });
-          }else {
+            return reply(base.utils.genericResponse(null, base.utils.Error('address_contry_invalid', {address: address.country})));
+          } else {
             address.id = shortId.generate()
           }
         });

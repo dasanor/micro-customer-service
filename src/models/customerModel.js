@@ -77,8 +77,11 @@ function modelFactory(base, configKeys) {
   model.selectableFields = [
     'id',
     'email',
+    'fristName',
+    'lastName',
     'tags',
-    'status'
+    'status',
+    'addresses'
   ];
 
   // Add the model to mongoose
