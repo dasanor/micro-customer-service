@@ -6,6 +6,8 @@ branches:
   only:
   - master
   - develop
+  - /^deploy\/.+$/
+#  - /^feature\/.+$/
 services:
   - mongodb
   - docker
@@ -30,6 +32,7 @@ before_script:
 script:
   - npm run test-cov-lcov
 after_success:
+  - echo {\"info\":{\"package\":{\"commit\":\"$TRAVIS_COMMIT\"}}}>extra.json
   - cat ./lcov.info | ./node_modules/.bin/coveralls
   - cd ..
   - docker build -t $TRAVIS_REPO_SLUG:build .
@@ -50,4 +53,4 @@ after_success:
     fi
 notifications:
   slack:
-    secure: obxHL9gYrTRNtG+1Z6h/llCKO2ztOBZ4LbB+bgRaELdj8Bk1IvjlCPgnNWrxbgDYCTyfvWNMevMTr9BllLRWmyIaARSLWKkJfjNlxGW3cQxTAEh0i3Tf1j1uxfOX2K4tXtTZyTkTKpLWAg0Qc9A8OzKtoH1CVI1p7KxL9Abdheq5ZUG32FXeMQimBhwD7QHFRmx5tM2B1unxMwDiNnT3T4tBPni9O7H8BOH4Di5/RVpIcHq0jBIQV46W1EXUZICyeEuXoXfOMS6aGYRaAiIo0TymW9bTL2cwiYeV4RBPE3t8Qw22dJc1JqLO3PxsvxO3y8e/Bg6GqPE50txQl3WQ5Ij73MzfKm6MHbL8OeNt+R3u6TKYN0bTfDm4MY40CfIsQVlb9QQLqfkXl7D5k6E5uuC/RErW14R1/37NdhwnFIJkdT+UPBxZ3O8GiA0lfEI01MYKI0ZvtGlwy1Fb7iclIawuIFa4KxaYar6Mij3nbnngDDrzhBGeS4gvef9HRMbe5ZiytkZDCn143goDrbn2nePJmH01omekgqApOP5x+wGiqAkzsgdI0TkkXZLwCc7tBHWCd6qtwt12b3O8SSgesZHIDaOLHxpK0kuoIlDA4Jpob6wGBfM/qOigkHzRgRH/5SPE7QPrUem/iJXLjaX0UEjw3L+Tic0iDPmXDPw6Dvo=
+    secure: ej6xmArToAAsxY2uLpvz6SgDFDt8EHyQD4G9siikFl080vlKaJ6GE7BFOjZCWrkJwm0AChVRafi/R6pia+K6P0f/N4y0nS89Ed/7oF8eRK8bLcxIdte9MFa15HbOjdmdxQxtwuOt+yzaiFHGms+256asDrA/LULZrsXwYDkov5Nu3qqi3LVNbVbHNThRrIi5dO0w5RyNPN9jk4Bo62En8XnRSrEtJ+ze4kOtumxwje8ID0hltnvA0LST/fCXdwqkFRxz+YPejQjNYc7BYA/jpVMKJHCicAp9P2bIMIyjX4gtFg+a39Ic32Vq9GkWbV2FWCcsNvS6nIkmmsvl4FRRVza/8mbFPWPyUrdhPjYhHQHi70hY5wk6odLDqV9lZruePvxCBY1WBQYYj7cdbDRfGZ6ZEh94Ivmxw0LsvkACcmiB6du4f/znVcDHHg5JD46B3S6yxQdwMcc51UkoYyysrRuHSJti3bu0b7oerDaLsNT9Bk+uB7em9UeLB9yvDj08aFU18mZhnjJWeIMFn2f1cdkKYdy8XhDyw0M7pMpvAk/4tH+RwJXdWvUb3N42pzXjf1CMfU3Jo41NCJ9VmlUSnkMSPXN46qwsN5zdebxoP7F9M7fgUmYiRmPBRAWFoDGqki5uzHB4tANZ6+ukG2/d9fNbqmUju0XtSv46y/NF5p8=

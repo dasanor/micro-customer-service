@@ -27,8 +27,9 @@
   "dependencies": {
     "i18n-iso-countries": "^1.8.0",
     "isemail": "^2.2.1",
-    "microbase": "^0.9.0",
+    "microbase": "^0.10.0",
     "moment": "^2.17.1",
+    "raven": "^1.1.1",
     "shortid": "^2.2.6",
     "bcrypt": "^1.0.0"
   },
