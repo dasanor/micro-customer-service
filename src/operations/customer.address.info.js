@@ -11,7 +11,7 @@ module.exports = (base) => {
 
   return {
     validator: {
-      schema: require(base.config.get('schemas:infoAddress'))
+      schema: base.utils.loadModule('schemas:infoAddress')
     },
     handler: (msg, reply) => {
       const customerId = msg.customerId;

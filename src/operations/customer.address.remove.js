@@ -11,7 +11,7 @@ module.exports = (base) => {
 
   return {
     validator: {
-      schema: require(base.config.get('schemas:removeAddress'))
+      schema: base.utils.loadModule('schemas:removeAddress')
     },
     handler: (msg, reply) => {
       const customerId = msg.customerId;

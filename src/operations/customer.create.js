@@ -17,7 +17,7 @@ module.exports = (base) => {
 
   return {
     validator: {
-      schema: require(base.config.get('schemas:createCustomer'))
+      schema: base.utils.loadModule('schemas:createCustomer')
     },
     handler: (msg, reply) => {
       const email = msg.email;

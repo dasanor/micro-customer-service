@@ -13,7 +13,7 @@ module.exports = (base) => {
 
   return {
     validator: {
-      schema: require(base.config.get('schemas:createAddress'))
+      schema: base.utils.loadModule('schemas:createAddress')
     },
     handler: (msg, reply) => {
       const customerId = msg.customerId;

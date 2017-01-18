@@ -11,7 +11,7 @@ const bcrypt = require('bcrypt');
 module.exports = (base) => {
   return {
     validator: {
-      schema: require(base.config.get('schemas:checkCredentials'))
+      schema: base.utils.loadModule('schemas:checkCredentials')
     },
     handler: (msg, reply) => {
       const email = msg.email;

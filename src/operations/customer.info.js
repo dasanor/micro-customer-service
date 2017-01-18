@@ -9,7 +9,7 @@
 module.exports = (base) => {
   return {
     validator: {
-      schema: require(base.config.get('schemas:infoCustomer'))
+      schema: base.utils.loadModule('schemas:infoCustomer')
     },
     handler: (msg, reply) => {
       const id = msg.id;
