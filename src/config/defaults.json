@@ -5,18 +5,18 @@
     "style": "RPC"
   },
   "schemas": {
-    "createCustomer": "./schemas/createCustomerSchema",
-    "updateCustomer": "./schemas/updateCustomerSchema",
-    "infoCustomer": "./schemas/infoCustomerSchema",
-    "removeCustomer": "./schemas/removeCustomerSchema",
-    "checkCredentials": "./schemas/checkCredentialsSchema",
-    "createAddress": "./schemas/createAddressSchema",
-    "updateAddress": "./schemas/updateAddressSchema",
-    "infoAddress": "./schemas/infoAddressSchema",
-    "removeAddress": "./schemas/removeAddressSchema"
+    "createCustomer": "${servicePath}/operations/schemas/createCustomerSchema",
+    "updateCustomer": "${servicePath}/operations/schemas/updateCustomerSchema",
+    "infoCustomer": "${servicePath}/operations/schemas/infoCustomerSchema",
+    "removeCustomer": "${servicePath}/operations/schemas/removeCustomerSchema",
+    "checkCredentials": "${servicePath}/operations/schemas/checkCredentialsSchema",
+    "createAddress": "${servicePath}/operations/schemas/createAddressSchema",
+    "updateAddress": "${servicePath}/operations/schemas/updateAddressSchema",
+    "infoAddress": "${servicePath}/operations/schemas/infoAddressSchema",
+    "removeAddress": "${servicePath}/operations/schemas/removeAddressSchema"
   },
   "models": {
-    "Customer": "./models/customerModel"
+    "Customer": "${servicePath}/models/customerModel"
   },
   "bus": {
     "engines": {
